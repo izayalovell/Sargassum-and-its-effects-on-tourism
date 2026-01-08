@@ -1,0 +1,92 @@
+/* Reset & base styling */
+* {
+box-sizing: border-box;
+}
+body {
+margin: 0;
+font-family: "Segoe UI", Arial, sans-serif;
+background-color: #f4f9fc;
+color: #003366;
+line-height: 1.6;
+}
+/* Header */
+.site-header {
+background: linear-gradient(
+135deg,
+#87ceeb, /* sky blue */
+#ffd700 /* gold */
+);
+text-align: center;
+padding: 40px 20px;
+border-bottom: 6px solid #c8102e; /* red */
+}
+.logo {
+width: 140px;
+margin-bottom: 10px;
+}
+.site-header h1 {
+margin: 10px 0 5px;
+font-size: 2.2rem;
+}
+.site-header p {
+font-size: 1.1rem;
+font-weight: 500;
+}
+/* Navigation */
+.navbar {
+background-color: #003366;
+display: flex;justify-content: center;
+gap: 20px;
+padding: 12px;
+}
+.navbar a {
+color: #ffffff;
+text-decoration: none;
+font-weight: bold;
+padding: 6px 10px;
+border-radius: 4px;
+}
+.navbar a:hover {
+background-color: #c8102e; /* red */
+}
+/* Main content */
+.content {
+max-width: 1100px;
+margin: auto;
+padding: 40px 20px;
+display: grid;
+gap: 25px;
+}
+/* Cards */
+.card {
+background-color: #ffffff;
+padding: 25px;
+border-left: 8px solid #ffd700; /* gold */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+.card h2 {
+margin-top: 0;
+color: #003366;
+}
+/* Accent section */
+.card.accent {
+border-left-color: #c8102e; /* red */
+background-color: #fffaf0;}
+/* Footer */
+.site-footer {
+background-color: #003366;
+color: white;
+text-align: center;
+padding: 18px;
+font-size: 0.95rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+.site-header h1 {
+font-size: 1.8rem;
+}
+.navbar {
+flex-wrap: wrap;
+}
+}
