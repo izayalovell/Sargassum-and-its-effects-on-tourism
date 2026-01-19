@@ -1,92 +1,227 @@
-/* Reset & base styling */
+/* ================= COLOR THEME ================= */
+:root {
+    --sky-blue: #4fc3f7;
+    --sky-blue-dark: #0288d1;
+    --red: #e53935;
+    --gold: #fbc02d;
+    --dark: #0f1720;
+    --light: #f5f7f8;
+}
+
+/* ================= RESET ================= */
 * {
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
+
+/* ================= BODY ================= */
 body {
-margin: 0;
-font-family: "Segoe UI", Arial, sans-serif;
-background-color: #f4f9fc;
-color: #003366;
-line-height: 1.6;
+    background: var(--light);
+    color: #222;
+    padding-top: 80px;
 }
-/* Header */
-.site-header {
-background: linear-gradient(
-135deg,
-#87ceeb, /* sky blue */
-#ffd700 /* gold */
-);
-text-align: center;
-padding: 40px 20px;
-border-bottom: 6px solid #c8102e; /* red */
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--sky-blue-dark), var(--sky-blue));
+    box-shadow: 0 6px 25px rgba(0,0,0,0.35), inset 0 -2px 0 rgba(251,192,45,0.6);
+    z-index: 1000;
 }
 .logo {
-width: 140px;
-margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
-.site-header h1 {
-margin: 10px 0 5px;
-font-size: 2.2rem;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
 }
-.site-header p {
-font-size: 1.1rem;
-font-weight: 500;
+.nav-links a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 6px 0;
+    transition: color 0.3s ease;
 }
-/* Navigation */
-.navbar {
-background-color: #003366;
-display: flex;justify-content: center;
-gap: 20px;
-padding: 12px;
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
-.navbar a {
-color: #ffffff;
-text-decoration: none;
-font-weight: bold;
-padding: 6px 10px;
-border-radius: 4px;
+.nav-links a:hover {
+    color: var(--gold);
 }
-.navbar a:hover {
-background-color: #c8102e; /* red */
+.nav-links a:hover::after {
+    width: 120%;
 }
-/* Main content */
-.content {
-max-width: 1100px;
-margin: auto;
-padding: 40px 20px;
-display: grid;
-gap: 25px;
+
+/* ================= HERO ================= */
+.sargassum-banner {
+    position: relative;
+    height: 90vh;
+    background: url("DigitalLogo.png") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-/* Cards */
-.card {
-background-color: #ffffff;
-padding: 25px;
-border-left: 8px solid #ffd700; /* gold */
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-border-radius: 8px;
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(2,136,209,0.75), rgba(15,23,32,0.85));
 }
-.card h2 {
-margin-top: 0;
-color: #003366;
+.banner-text {
+    position: relative;
+    max-width: 650px;
+    color: white;
 }
-/* Accent section */
-.card.accent {
-border-left-color: #c8102e; /* red */
-background-color: #fffaf0;}
-/* Footer */
-.site-footer {
-background-color: #003366;
-color: white;
-text-align: center;
-padding: 18px;
-font-size: 0.95rem;
+.banner-text h1 {
+    font-size: 3.2rem;
 }
-/* Responsive */
-@media (max-width: 768px) {
-.site-header h1 {
-font-size: 1.8rem;
+.banner-text q {
+    margin: 14px 0;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 1px;
 }
-.navbar {
-flex-wrap: wrap;
+.banner-text p {
+    font-size: 1.1rem;
 }
+.page-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 32px;
+    background: var(--red);
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 6px 18px rgba(229,57,53,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.page-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(229,57,53,0.7);
+}
+
+/* ================= SECTIONS ================= */
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 25px;
+}
+section h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    color: var(--sky-blue-dark);
+}
+section p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* ================= CARDS ================= */
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(251,192,45,0.25), 0 0 0 1px rgba(251,192,45,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(251,192,45,0.55), 0 0 25px rgba(251,192,45,0.6);
+}
+.info-card h3 {
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+/* ================= DROPDOWN BUTTONS ================= */
+.dropdown-btn {
+    width: 100%;
+    background-color: var(--sky-blue);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+}
+.dropdown-btn:hover {
+    background-color: var(--sky-blue-dark);
+}
+.dropdown-content {
+    display: none;
+    background-color: #f5f7f8;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= IMAGE SECTION ================= */
+.photo-section img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.caption {
+    margin-top: 12px;
+    text-align: center;
+    font-style: italic;
+    color: var(--sky-blue-dark);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: linear-gradient(90deg, var(--sky-blue-dark), var(--dark));
+    color: #eee;
+    text-align: center;
+    padding: 35px 20px;
+}
+.footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* ================= ANIMATIONS ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
